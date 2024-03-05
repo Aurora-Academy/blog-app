@@ -1,0 +1,759 @@
+{
+	"info": {
+		"_postman_id": "c5dcc3c2-6e9d-4eb8-9ee5-42d84c9c81eb",
+		"name": "Blog_app_8am",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29996305"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha3RpbUBydW1zYW4uY29tIiwicm9sZXMiOlsiYWRtaW4iXX0sImlhdCI6MTcwNzcwOTIxNCwiZXhwIjoxNzA4MzE0MDE0fQ.kzXgbTc-2TfF2stzT7VKifKGUuS0SkI_l2lpiQ9FHBY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users?limit=100&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new User (Admin Only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha3RpbUBydW1zYW4uY29tIiwicm9sZXMiOlsiYWRtaW4iXX0sImlhdCI6MTcwNzg3OTUxMSwiZXhwIjoxNzA4NDg0MzExfQ.6Jr9QZ_izB8sgGQe-jQwhDvcqU0qt2HCiHQEvJxnjTQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Raktim Shrestha\",\n    \"email\": \"raktim+test@rumsan.com\",\n    \"password\": \"1243\",\n    \"phone\": 9845160080\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aanshu Dwiwedi\",\n    \"email\": \"aanshu@gmail.com\",\n    \"password\": \"123\",\n    \"phone\": \"9845160080\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"raktim@rumsan.com\",\n    \"password\": \"abcd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate FP Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"raktim@rumsan.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/generate-fp-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"generate-fp-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify FP Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"raktim@rumsan.com\",\n    \"token\": \"755268\",\n    \"password\": \"abcd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/verify-fp-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"verify-fp-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password (Admin Only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha3RpbUBydW1zYW4uY29tIiwicm9sZXMiOlsiYWRtaW4iXX0sImlhdCI6MTcwNzc5MjM1NywiZXhwIjoxNzA4Mzk3MTU3fQ.fH4N_EemJ8U4sNmXgKMXt5MiJoGAHQpb4VWqDpOb8L8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"65cad8143e77f791ca0dae48\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password (User Only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha2ltc3RoQGdtYWlsLmNvbSIsInJvbGVzIjpbInVzZXIiXX0sImlhdCI6MTcwNzc5Mjk0NiwiZXhwIjoxNzA4Mzk3NzQ2fQ.fg_v4p9lWYi58i-3yj1lHK_CQTeqEtNE1du6zNkEUAs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"65cad8143e77f791ca0dae48\",\n    \"oldPassword\": \"123\",\n    \"newPassword\": \"abcd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id (Admin Only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha3RpbUBydW1zYW4uY29tIiwicm9sZXMiOlsiYWRtaW4iXX0sImlhdCI6MTcwNzcwOTIxNCwiZXhwIjoxNzA4MzE0MDE0fQ.kzXgbTc-2TfF2stzT7VKifKGUuS0SkI_l2lpiQ9FHBY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/65cad8143e77f791ca0dae48",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"65cad8143e77f791ca0dae48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile (User Only)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha2ltc3RoQGdtYWlsLmNvbSIsInJvbGVzIjpbInVzZXIiXX0sImlhdCI6MTcwNzc5NDkwMywiZXhwIjoxNzA4Mzk5NzAzfQ.BJE0CJw5G9HOoMOZvLLPmdAu8XwtuCfgZEj_5E-2GmM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"65cae169a1001ff8a5672d27\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/get-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"get-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile (User Only)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha2ltc3RoQGdtYWlsLmNvbSIsInJvbGVzIjpbInVzZXIiXX0sImlhdCI6MTcwNzc5NDkwMywiZXhwIjoxNzA4Mzk5NzAzfQ.BJE0CJw5G9HOoMOZvLLPmdAu8XwtuCfgZEj_5E-2GmM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"65cae169a1001ff8a5672d27\",\n    \"name\": \"Raktim Shrestha\",\n    \"phone\": 9845160080\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/update-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update By Id (Admin Only)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha3RpbUBydW1zYW4uY29tIiwicm9sZXMiOlsiYWRtaW4iXX0sImlhdCI6MTcwNzcwOTIxNCwiZXhwIjoxNzA4MzE0MDE0fQ.kzXgbTc-2TfF2stzT7VKifKGUuS0SkI_l2lpiQ9FHBY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Raktim Kumar Shrestha\",\n    \"phone\": \"9845160080\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/65cae169a1001ff8a5672d27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"65cae169a1001ff8a5672d27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Id (Admin Only)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha3RpbUBydW1zYW4uY29tIiwicm9sZXMiOlsiYWRtaW4iXX0sImlhdCI6MTcwNzcwOTIxNCwiZXhwIjoxNzA4MzE0MDE0fQ.kzXgbTc-2TfF2stzT7VKifKGUuS0SkI_l2lpiQ9FHBY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/65cad8143e77f791ca0dae48",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"65cad8143e77f791ca0dae48"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "blogs",
+			"item": [
+				{
+					"name": "Get all blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/slug/hello-world-part-2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"slug",
+								"hello-world-part-2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Published Blogs Only",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/publishedOnly?author=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"publishedOnly"
+							],
+							"query": [
+								{
+									"key": "author",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Blog",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJSYWt0aW0gU2hyZXN0aGEiLCJlbWFpbCI6InJha3RpbUBydW1zYW4uY29tIiwicm9sZXMiOlsiYWRtaW4iXX0sImlhdCI6MTcwODU2OTAxOSwiZXhwIjoxNzA4NTY5MDIwfQ.Vh1Bc2lrkmYUskE7-0zZcKTe09oyuYNr-5tvp0OHONA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/raktim/Downloads/pp.jpg"
+								},
+								{
+									"key": "title",
+									"value": "How can I be good developer Part 6",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "65cae169a1001ff8a5672d27",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Write lot of codes. Make a lot of mistakes and correct it",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Blog",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World Part 1\",\n    \"content\": \"My name is Lakhan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch a blog",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World Part 1\",\n    \"content\": \"My name is Lakhan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status Only",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/status/65cd7dd888e85ca7d9474555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"status",
+								"65cd7dd888e85ca7d9474555"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a blog",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World Part 1\",\n    \"content\": \"My name is Lakhan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Author Blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/blogs/authors?author=rak&page=2&limit=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"authors"
+							],
+							"query": [
+								{
+									"key": "author",
+									"value": "rak"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
